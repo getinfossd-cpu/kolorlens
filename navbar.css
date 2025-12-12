@@ -1,0 +1,84 @@
+/* Navbar Styles (Light Mode Only) */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px; 
+    height: 60px; /* Kept height for consistency */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    z-index: 1000;
+
+    /* ★ FIX: Hardcoded light theme values (replaces variables) ★ */
+    background-color: rgba(255, 255, 255, 0.9); /* Opaque white background for light mode */
+    backdrop-filter: blur(8px); /* Reduced blur as it's less necessary */
+    -webkit-backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* Light gray/black border */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.navbar-logo {
+    max-height: 100px; 
+    width: auto;
+    display: block;
+    margin: 0; 
+}
+
+/* ================================================= */
+/* NEW: Terms and Policy Links */
+/* ================================================= */
+
+.navbar-links {
+    display: flex;
+    align-items: center;
+    gap: 25px; /* Spacing between Terms and Policy */
+    height: 100%;
+}
+
+.nav-link {
+    text-decoration: none;
+    font-size: 0.95em;
+    font-weight: 500;
+    /* Hardcode link text color for the light theme */
+    color: #495057; 
+    transition: color 0.3s;
+}
+
+.nav-link:hover {
+    color: #007bff; /* Primary hover color */
+}
+
+/* NOTE: .navbar-menu selector removed as it is no longer used for the legal links */
+
+
+/* Responsive for smaller screens */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        height: auto;
+        padding: 10px 20px;
+    }
+    
+    /* Adjust link group layout for mobile */
+    .navbar-links {
+        width: 100%;
+        gap: 15px; /* Tighter spacing on mobile */
+        justify-content: flex-end; /* Align links to the right or center as needed */
+        height: auto;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+
+    .nav-link {
+        font-size: 0.9em;
+    }
+}

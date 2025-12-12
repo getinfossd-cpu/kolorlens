@@ -1,0 +1,586 @@
+/* D:\ColorLense\style.css (FINAL LIGHT MODE ONLY VERSION) */
+/* Reset */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* ---------------------------------------------------- */
+/* --- 1. THEME VARIABLE DEFINITIONS (HARDCODED LIGHT) --- */
+/* ---------------------------------------------------- */
+:root {
+    /* Hardcoded Light Theme Colors */
+    --text-color: #212529;
+    --background-color: #f1f3f5;
+    --card-bg-color: #ffffff;
+    --border-color: #e9ecef;
+    --hover-bg-color: #f1f3f5;
+    --active-bg-color: #e9ecef;
+    
+    /* Navbar variables hardcoded for light glassy effect */
+    --navbar-bg-color-alpha: rgba(255, 255, 255, 0.9);
+    --navbar-border-color: rgba(0, 0, 0, 0.05);
+
+    /* Icon Filters (Now fixed to light mode defaults) */
+    --icon-filter: none;
+    --copy-icon-filter: invert(30%);
+}
+
+/* --- REMOVED: DARK THEME OVERRIDES (body.dark-theme) --- */
+
+/* --- BASE STYLES & BODY (Now using only light theme variables) --- */
+body {
+    font-family: 'Roboto Rounded', 'Poppins', sans-serif;
+    background-color: var(--background-color); 
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+    /* Transition is kept but will no longer trigger theme switch */
+    transition: background-color 0.3s, color 0.3s; 
+}
+
+/* ---------------------------------------------------- */
+/* --- HERO TAGLINE STYLES --- */
+/* ---------------------------------------------------- */
+
+.hero-tagline-wrapper {
+    padding-top: 120px; 
+    padding-bottom: 40px;
+    text-align: center;
+    color: var(--text-color); 
+}
+
+.hero-tagline {
+    color: var(--text-color); 
+    margin: 0;
+    padding: 0;
+}
+
+.hero-subtitle {
+    color: var(--text-color); 
+    opacity: 0.7; 
+    margin-top: 15px; 
+    font-size: 1.1em;
+}
+
+.highlight {
+    color: #007bff;
+}
+
+/* Navbar (Hardcoded Shadow and Filter) */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    height: 50px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    z-index: 1000;
+    
+    background-color: var(--navbar-bg-color-alpha); 
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--navbar-border-color); 
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05); /* Light mode shadow */
+}
+
+/* --- REMOVED: .dark-theme .navbar Shadow Override --- */
+
+.navbar-logo {
+    max-height: 30px;
+    width: auto;
+    transform: translateY(2px);
+}
+
+.navbar-menu {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    align-items: center;
+}
+
+.navbar-menu li a {
+    color: var(--text-color); 
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+    line-height: 50px;
+}
+
+.navbar-menu li a:hover {
+    color: #007bff;
+}
+
+/* ---------------------------------------------------- */
+/* --- REMOVED: THEME TOGGLE & SETTINGS PANEL STYLES (NO LONGER NEEDED) --- */
+/* The styles for .settings-group, .theme-panel, .theme-option, etc. are now redundant */
+
+.settings-group {
+    position: relative;
+}
+
+.icon-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: background-color 0.2s;
+}
+
+.icon-button img {
+    filter: var(--icon-filter); /* Uses 'none' from :root */
+}
+
+/* --- REMOVED: .dark-theme .icon-button img filter invert --- */
+
+.icon-button:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* --- REMOVED: .dark-theme .icon-button:hover --- */
+
+/* --- REMOVED: .theme-panel, .theme-option styles --- */
+
+
+/* ---------------------------------------------------- */
+/* --- 3. MAIN CONTENT (Hardcoded Shadow) --- */
+/* ---------------------------------------------------- */
+
+.main-content-card {
+    /* Central Card Styling */
+    max-width: 1000px; 
+    margin: 60px auto 60px auto; 
+    background-color: var(--card-bg-color);
+    border-radius: 12px;
+    padding: 30px; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08); /* Light mode shadow */
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+/* --- REMOVED: .dark-theme .main-content-card Shadow Override --- */
+
+
+.hero-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; 
+    gap: 40px; 
+    align-items: flex-start; 
+    width: 100%;
+}
+
+/* Left: Image as hero */
+.hero-left {
+    flex: 1 1 650px; 
+    max-width: 700px; 
+    position: relative;
+    max-height: 500px; 
+    min-height: 250px;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+#display-image {
+    width: auto; 
+    height: auto; 
+    max-width: 100%; 
+    max-height: 100%; 
+    object-fit: contain;
+    display: block;
+    border-radius: 12px; 
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    cursor: crosshair;
+    user-select: none;
+    transition: box-shadow 0.3s;
+}
+
+#canvas {
+    display: none;
+}
+
+/* Magnifier */
+#magnifier {
+    display: none;
+    position: fixed;
+    border: 3px solid white;
+    width: 150px; 
+    height: 150px; 
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    pointer-events: none;
+    z-index: 1000;
+    overflow: hidden;
+    background-color: white;
+    background-repeat: no-repeat; 
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    
+    transform: translate(-50%, -50%);
+}
+
+#magnifier::after {
+    content: '';
+    position: absolute;
+    width: 15px; 
+    height: 15px; 
+    border: 1px solid black; 
+    outline: 1px solid white; 
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1001; 
+    box-shadow: 0 0 0 100vmax rgba(0,0,0,0.05) inset;
+}
+
+
+/* Right: Info container (Controls Column) */
+.hero-right {
+    flex: 0 0 250px; 
+    max-width: 300px; 
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+    text-align: left; 
+    gap: 25px;
+}
+
+/* --- Color Box Area (Single Box) --- */
+.colors-section {
+    width: 100%; 
+    text-align: left; 
+}
+
+.picked-color-box.single-box {
+    width: 100%; 
+    max-width: 300px; 
+    height: 120px; 
+    border-radius: 8px;
+    background-color: var(--hover-bg-color); 
+    border: 2px dashed var(--border-color); 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    transition: background-color 0.3s;
+    margin: 0; 
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#color-prompt-message {
+    font-size: 0.9em;
+    color: var(--text-color);
+    opacity: 0.7;
+    text-align: center;
+    padding: 10px;
+}
+
+
+/* --- Color Details Card --- */
+.color-details-card {
+    width: 100%;
+    margin: 0; 
+    background-color: transparent; 
+    border-radius: 12px;
+    padding: 0; 
+    box-shadow: none; 
+    display: flex;
+    flex-direction: column;
+    gap: 10px; 
+}
+
+.color-row-container {
+    display: flex;
+    align-items: stretch; 
+    height: 40px; 
+    border-radius: 8px; 
+    overflow: hidden; 
+    border: var(--border-color) 1px solid;
+}
+
+.color-label-box {
+    flex: 0 0 60px; 
+    background-color: var(--hover-bg-color); 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10px;
+}
+
+.color-label-text {
+    font-size: 0.8em;
+    font-weight: 500;
+    color: var(--text-color); 
+}
+
+.color-value-box {
+    flex-grow: 1; 
+    background-color: var(--card-bg-color); 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 15px;
+}
+
+.color-value {
+    font-size: 1em;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-right: auto;
+}
+
+.copy-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    transition: opacity 0.2s;
+    height: 100%; 
+    display: flex;
+    align-items: center;
+}
+
+.copy-button img {
+    width: 20px;
+    height: 20px;
+    filter: var(--copy-icon-filter); /* Uses invert(30%) from :root */
+}
+
+/* --- REMOVED: .dark-theme .copy-button img filter invert --- */
+
+.copy-button:hover {
+    opacity: 0.7;
+}
+
+.view-details-link {
+    display: block;
+    margin-top: 10px;
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 500;
+    text-align: left;
+    transition: color 0.3s;
+}
+
+.view-details-link:hover {
+    color: #0056b3;
+}
+
+/* --- Custom Upload Section --- */
+.upload-container {
+    width: 100%;
+    margin: 0; 
+    background-color: var(--card-bg-color);
+    border-radius: 12px;
+    padding: 0; 
+    box-shadow: none; 
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.upload-box {
+    width: 100%;
+    padding: 30px 20px;
+    border-radius: 8px;
+    background-color: var(--hover-bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: inset 0 0 0 2px var(--border-color); 
+}
+
+.hidden-input {
+    display: none;
+}
+
+.upload-button {
+    display: inline-block;
+    padding: 12px 25px;
+    font-size: 1.1em;
+    border-radius: 6px;
+    /* Button colors hardcoded to light theme look */
+    background-color: #212529; 
+    color: #ffffff; 
+    cursor: pointer;
+    transition: background 0.3s;
+    font-weight: 500;
+    font-family: 'Roboto Rounded', sans-serif; 
+}
+
+.upload-button:hover {
+    background-color: #495057;
+}
+
+.data-protection-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.9em;
+    color: var(--text-color);
+    opacity: 0.7;
+}
+
+.check-icon {
+    color: #28a745;
+    font-weight: bold;
+    font-size: 1.2em;
+    line-height: 1;
+}
+
+.data-protection-note p strong {
+    color: #007bff;
+    font-weight: 600;
+}
+
+/* Features Section */
+.features {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    padding: 60px 20px;
+    background-color: var(--card-bg-color);
+    transition: background-color 0.3s;
+}
+
+.feature {
+    flex: 1 1 250px;
+    max-width: 300px;
+    background-color: var(--hover-bg-color);
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+    transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+}
+
+.feature:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+}
+
+.feature h2 {
+    font-size: 1.5em;
+    color: #007bff;
+    margin-bottom: 12px;
+}
+
+.feature p {
+    font-size: 1em;
+    color: var(--text-color);
+    opacity: 0.9;
+}
+
+/* ---------------------------------------------------- */
+/* --- CTA STYLING --- */
+/* ---------------------------------------------------- */
+.cta-banner {
+    text-align: center;
+    padding: 60px 20px;
+    background-color: var(--card-bg-color); 
+    border-top: 1px solid var(--border-color);
+    margin-top: 50px;
+    transition: background-color 0.3s, border-top 0.3s;
+}
+
+.cta-banner h2 {
+    font-size: 2.5em;
+    margin-bottom: 15px;
+    color: var(--text-color);
+}
+
+.cta-banner p {
+    font-size: 1.2em;
+    color: var(--text-color);
+    opacity: 0.7;
+    margin-bottom: 30px;
+}
+
+.cta-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.1em;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-family: 'Roboto Rounded', sans-serif; 
+}
+
+.cta-button:hover {
+    background-color: #0056b3;
+    transform: translateY(-1px);
+}
+
+/* Responsive (Adjusted alignment for mobile) */
+@media (max-width: 768px) {
+    .main-content-card {
+        margin: 100px 10px 30px 10px; 
+        padding: 20px;
+        max-width: 100%;
+    }
+    
+    .hero-wrapper {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        justify-content: center; 
+    }
+
+    .hero-left {
+        max-width: 100%;
+        max-height: none; 
+    }
+
+    .hero-right {
+        max-width: 100%;
+        align-items: flex-start; 
+        padding: 0 10px; 
+    }
+    
+    .colors-section, .color-details-card, .upload-container {
+        width: 100%; 
+        text-align: left; 
+        margin: 0; 
+    }
+    
+    .picked-color-box.single-box {
+        margin: 0;
+    }
+
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        height: auto;
+        padding: 10px 20px;
+    }
+
+    .navbar-menu {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .navbar-menu li a {
+        line-height: normal;
+    }
+}

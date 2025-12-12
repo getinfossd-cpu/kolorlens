@@ -1,0 +1,77 @@
+/* D:\ColorLense\legal-pages.css */
+
+/* General container style to center and limit width */
+.content-container {
+    max-width: 900px; /* Slightly wider for better readability of legal text */
+    margin: 80px auto 60px auto; /* Push down past the fixed navbar, more bottom margin */
+    padding: 30px;
+    font-family: 'Roboto', Arial, sans-serif;
+    line-height: 1.7; /* Increased line height for better separation */
+    color: #212529; /* Light theme text color */
+}
+
+/* Headings */
+.content-container h1 {
+    font-size: 2.8em; /* Big, clear main title */
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.content-container h2 {
+    font-size: 1.8em; /* Big, readable section headings */
+    font-weight: 600;
+    margin-top: 40px;
+    margin-bottom: 15px;
+    color: #495057; /* Slightly softer dark color */
+    border-bottom: 2px solid #e9ecef;
+    padding-bottom: 8px;
+}
+
+/* Paragraphs and Lists */
+.content-container p {
+    font-size: 1.15em; /* Large, comfortable body font size */
+    margin-bottom: 25px;
+}
+
+.content-container ul {
+    padding-left: 30px; /* Indent lists clearly */
+    list-style-type: disc;
+    margin-bottom: 30px;
+}
+
+.content-container li {
+    font-size: 1.15em; /* Ensure list items are also big */
+    margin-bottom: 15px;
+}
+
+/* Special Emphasis */
+.content-container strong {
+    font-weight: 700;
+    color: #000;
+}
+
+/* Metadata */
+.last-updated {
+    font-size: 1em;
+    font-style: italic;
+    color: #6c757d;
+    margin-bottom: 40px;
+}
+
+/* Responsive adjustment for smaller screens */
+@media (max-width: 960px) {
+    .content-container {
+        max-width: 100%;
+        padding: 20px 15px;
+        margin-top: 70px;
+    }
+    .content-container h1 {
+        font-size: 2.2em;
+    }
+    .content-container h2 {
+        font-size: 1.6em;
+    }
+    .content-container p, .content-container li {
+        font-size: 1em; /* Slight reduction for mobile space */
+    }
+}
